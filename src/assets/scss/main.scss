@@ -1,0 +1,45 @@
+@import 'config';
+
+$outputTokenCSS: false;
+@import '../../node_modules/gorko/gorko.scss';
+
+@import 'var';
+@import 'reset';
+@import 'base';
+@import 'type';
+
+@import 'blocks/btn';
+@import 'blocks/page-content';
+@import 'blocks/form';
+
+@import 'utilities/auto-grid';
+@import 'utilities/flow';
+@import 'utilities/full-bleed';
+@import 'utilities/reel';
+@import 'utilities/container';
+@import 'utilities/line-clamp';
+@import 'utilities/image-overlay';
+@import 'utilities/split';
+@import 'utilities/cluster';
+@import 'utilities/cluster';
+@import 'utilities/aspect-ratio';
+
+
+.underline{
+    text-decoration: underline !important;
+}
+
+
+.header-animation-trigger {
+	height: 725px;
+	width: 100%;
+	position: absolute;
+	top: 140px;
+	left: 0;
+    @include media-query('md') {
+		height: 1310px;
+	}
+	@include media-query('lg') {
+		height: 1160px;
+	}
+}

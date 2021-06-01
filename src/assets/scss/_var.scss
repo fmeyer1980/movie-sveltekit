@@ -1,0 +1,91 @@
+:root {
+  --gutter: var(--size-400);
+  --container-width: 80em;
+  --container-width-narrow: 71.25em;
+  --container-padding: get-size('gutter');
+  @include media-query('xl') {
+    --container-padding: calc((100vw - calc(var(--container-width)) / 2));
+  }
+}
+
+/* @link https://utopia.fyi/space/calculator?c=320,21,1.25,1400,24,1.25,9,5,&s=0.88|0.75|0.65|0.5,1.35|1.85|2.35|2.85|3.5|5|6.5|8,s-l */
+
+:root {
+  --fluid-min-width: 320;
+  --fluid-max-width: 1280;
+
+  --fluid-screen: 100vw;
+  --fluid-bp: calc((var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) / (var(--fluid-max-width) - var(--fluid-min-width)));
+}
+
+@media screen and (min-width: 1280px) {
+  :root {
+    --fluid-screen: calc(var(--fluid-max-width) * 1px);
+  }
+}
+
+:root {
+  --fc-5xs-min: (var(--fc-s-min) * 0.5); 
+  --fc-5xs-max: (var(--fc-s-max) * 0.5);
+
+  --fc-4xs-min: (var(--fc-s-min) * 0.6); 
+  --fc-4xs-max: (var(--fc-s-max) * 0.6);
+
+  --fc-3xs-min: (var(--fc-s-min) * 0.65); 
+  --fc-3xs-max: (var(--fc-s-max) * 0.65);
+
+  --fc-2xs-min: (var(--fc-s-min) * 0.75); 
+  --fc-2xs-max: (var(--fc-s-max) * 0.75);
+
+  --fc-xs-min: (var(--fc-s-min) * 0.88); 
+  --fc-xs-max: (var(--fc-s-max) * 0.88);
+
+  --fc-s-min: (var(--f-0-min, 21)); 
+  --fc-s-max: (var(--f-0-max, 24));
+
+  --fc-m-min: (var(--fc-s-min) * 1.35); 
+  --fc-m-max: (var(--fc-s-max) * 1.35);
+
+  --fc-l-min: (var(--fc-s-min) * 1.85); 
+  --fc-l-max: (var(--fc-s-max) * 1.85);
+
+  --fc-xl-min: (var(--fc-s-min) * 2.35); 
+  --fc-xl-max: (var(--fc-s-max) * 2.35);
+
+  --fc-2xl-min: (var(--fc-s-min) * 2.85); 
+  --fc-2xl-max: (var(--fc-s-max) * 2.85);
+
+  --fc-3xl-min: (var(--fc-s-min) * 3.5); 
+  --fc-3xl-max: (var(--fc-s-max) * 3.5);
+
+  --fc-4xl-min: (var(--fc-s-min) * 5); 
+  --fc-4xl-max: (var(--fc-s-max) * 5);
+
+  --fc-5xl-min: (var(--fc-s-min) * 6.5); 
+  --fc-5xl-max: (var(--fc-s-max) * 6.5);
+
+  --fc-6xl-min: (var(--fc-s-min) * 8); 
+  --fc-6xl-max: (var(--fc-s-max) * 8);
+
+  --fc-7xl-min: (var(--fc-s-min) * 9); 
+  --fc-7xl-max: (var(--fc-s-max) * 9);
+
+  /* One-up pairs */
+  --size-300: calc(((var(--fc-s-min) / 16) * 1rem) + (var(--fc-m-max) - var(--fc-s-min)) * var(--fluid-bp));
+  --size-400: calc(((var(--fc-m-min) / 16) * 1rem) + (var(--fc-l-max) - var(--fc-m-min)) * var(--fluid-bp));
+  --size-500: calc(((var(--fc-l-min) / 16) * 1rem) + (var(--fc-xl-max) - var(--fc-l-min)) * var(--fluid-bp));
+  --size-600: calc(((var(--fc-xl-min) / 16) * 1rem) + (var(--fc-2xl-max) - var(--fc-xl-min)) * var(--fluid-bp));
+  --size-700: calc(((var(--fc-2xl-min) / 16) * 1rem) + (var(--fc-3xl-max) - var(--fc-2xl-min)) * var(--fluid-bp));
+  --size-800: calc(((var(--fc-3xl-min) / 16) * 1rem) + (var(--fc-4xl-max) - var(--fc-3xl-min)) * var(--fluid-bp));
+  --size-900: calc(((var(--fc-4xl-min) / 16) * 1rem) + (var(--fc-5xl-max) - var(--fc-4xl-min)) * var(--fluid-bp));
+  --size-lg: calc(((var(--fc-5xl-min) / 16) * 1rem) + (var(--fc-6xl-max) - var(--fc-5xl-min)) * var(--fluid-bp));
+
+/* Custom pairs */
+
+--size-xxs: calc(((var(--fc-5xs-min) / 16) * 1rem) + (var(--fc-5xs-max) - var(--fc-5xs-min)) * var(--fluid-bp));
+--size-xs: calc(((var(--fc-4xs-min) / 16) * 1rem) + (var(--fc-4xs-max) - var(--fc-4xs-min)) * var(--fluid-bp));
+--size-sm: calc(((var(--fc-3xs-min) / 16) * 1rem) + (var(--fc-3xs-max) - var(--fc-3xs-min)) * var(--fluid-bp));
+--size-100: calc(((var(--fc-2xs-min) / 16) * 1rem) + (var(--fc-2xs-max) - var(--fc-2xs-min)) * var(--fluid-bp));
+--size-200: calc(((var(--fc-xs-min) / 16) * 1rem) + (var(--fc-xs-max) - var(--fc-xs-min)) * var(--fluid-bp));
+--size-xl: calc(((var(--fc-5xl-min) / 16) * 1rem) + (var(--fc-7xl-max) - var(--fc-5xl-min)) * var(--fluid-bp));
+}
